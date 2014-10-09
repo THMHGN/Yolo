@@ -1,0 +1,243 @@
+#include "ui/menudef.h"
+#include "ui_mp/common_macro.inc"
+
+#define CHOICE_X_START			0
+#define CHOICE_Y_START			50
+
+#define CHOICE_GROUP			"contents"
+
+//#define CHOICE_SEP_1			2
+//#define CHOICE_SEP_2			6
+
+#include "ui_mp/menustyle.inc"
+#include "ui/choices_setup_common.menu"
+
+{
+	menuDef
+	{
+		name			mod_stats
+		fullscreen		0
+		rect			0 0 640 480	
+		focuscolor		COLOR_FOCUSED
+		style			WINDOW_STYLE_EMPTY
+		blurWorld		5
+		border			0
+		legacySplitScreenScale
+		
+		onOpen
+		{
+		close scoreboard;
+		}
+		onEsc			
+		{ 
+		close self; 
+		}
+		onClose	
+		{
+		open scoreboard;
+		}
+
+		itemDef	{
+			style			WINDOW_STYLE_SHADER
+			rect			120 120 450 275 HORIZONTAL_ALIGN_FULLSCREEN VERTICAL_ALIGN_FULLSCREEN
+			background		"menu_texture"
+			visible			1
+			decoration	
+			border			1
+			bordercolor		1 1 1 0.5
+		}
+		
+		itemDef	{
+			style			WINDOW_STYLE_FILLED
+			rect			120 395 450 75 HORIZONTAL_ALIGN_FULLSCREEN VERTICAL_ALIGN_FULLSCREEN
+			backcolor		0 0 0 0.75 
+			visible			1
+			decoration
+			border			1
+			bordercolor		1 1 1 0.5
+		}
+		
+		
+		itemDef	{
+			style			WINDOW_STYLE_FILLED
+			rect			120 120 450 25 HORIZONTAL_ALIGN_FULLSCREEN VERTICAL_ALIGN_FULLSCREEN
+			backcolor		(51/255) (181/255) (229/255) 0.75
+			visible			1
+			decoration
+			border			1
+			bordercolor		1 1 1 0.5
+		}
+				
+		itemDef	{ 
+			style			WINDOW_STYLE_SHADER
+			rect			0 100 250 200 HORIZONTAL_ALIGN_FULLSCREEN VERTICAL_ALIGN_FULLSCREEN
+			background		"gradient_bottom" 
+			visible			0.6
+			decoration
+		}
+		
+		itemDef	
+		{
+			style			WINDOW_STYLE_SHADER
+			rect			0 0 854 75 HORIZONTAL_ALIGN_FULLSCREEN 0
+			background		"gradient_top"
+			visible			0.5
+			decoration
+		}
+		
+		itemDef	
+		{
+			style			WINDOW_STYLE_SHADER
+			rect			0 405 854 75 HORIZONTAL_ALIGN_FULLSCREEN 0
+			background		"gradient_bottom"
+			visible			0.5
+			decoration
+		}
+		
+		itemDef	{ 
+			style			WINDOW_STYLE_SHADER
+			rect			65 35 115 130 HORIZONTAL_ALIGN_FULLSCREEN VERTICAL_ALIGN_FULLSCREEN
+			background		"logo_3xp" 
+			visible			1
+			decoration
+		}
+		
+		
+		itemDef	{
+			type			ITEM_TYPE_TEXT
+			rect			350 148 20 20 HORIZONTAL_ALIGN_FULLSCREEN VERTICAL_ALIGN_FULLSCREEN
+			forecolor		1 1 1 0.8
+			text			"Player Score"
+			textfont		UI_FONT_DEFAULT
+			textscale		(TEXTSIZE_SMALL-0.05)
+			textaligny		-6
+			textalign		ITEM_ALIGN_RIGHT
+			visible			1
+			decoration
+		}
+	
+		
+		// Version
+		itemDef
+		{
+			exp				text( "Version:^5 0.1" )
+			style			WINDOW_STYLE_EMPTY
+			rect			0 0 1 1
+
+			exp				rect X(600)
+			exp				rect Y(315)
+			textaligny		150
+			textscale		0.2
+			textstyle		ITEM_TEXTSTYLE_NORMAL
+			textfont		UI_FONT_OBJECTIVE
+			textalign		ITEM_ALIGN_CENTER
+			visible			1
+			decoration
+		}
+		// Menu by
+		itemDef
+		{
+			exp				text( "Menu by: Wingzor" )
+			style			WINDOW_STYLE_EMPTY
+			rect			0 0 1 1
+
+			exp				rect X(117)
+			exp				rect Y(315)
+			textaligny		150
+			textscale		0.2
+			textstyle		ITEM_TEXTSTYLE_NORMAL
+			textfont		UI_FONT_OBJECTIVE
+			textalign		ITEM_ALIGN_CENTER
+			visible			1
+			decoration
+		}
+
+		itemDef
+		{
+			exp				text( "Website: ^53xp-clan.com" )
+			style			WINDOW_STYLE_EMPTY
+			rect			0 0 1 1
+
+			exp				rect X(350)
+			exp				rect Y(310)
+			textaligny		150
+			textscale		0.4
+			textstyle		ITEM_TEXTSTYLE_NORMAL
+			textfont		UI_FONT_OBJECTIVE
+			textalign		ITEM_ALIGN_CENTER
+			visible			1
+			decoration
+		}
+		
+		itemDef
+		{
+			exp				text( "A CoD4 modification created by ^5Headdy" )
+			style			WINDOW_STYLE_EMPTY
+			rect			0 0 1 1
+
+			exp				rect X(350)
+			exp				rect Y(282)
+			textaligny		150
+			textscale		0.3
+			textstyle		ITEM_TEXTSTYLE_NORMAL
+			textfont		UI_FONT_OBJECTIVE
+			textalign		ITEM_ALIGN_CENTER
+			visible			1
+			decoration
+		}
+		
+		/////INFO
+		itemDef
+		{
+			exp				text( "Score: ^5" + player ( score ) )
+			style			WINDOW_STYLE_EMPTY
+			rect			0 0 1 1
+
+			exp				rect X(350)
+			exp				rect Y(120)
+			textaligny		150
+			textscale		0.5
+			textstyle		ITEM_TEXTSTYLE_NORMAL
+			textfont		UI_FONT_OBJECTIVE
+			textalign		ITEM_ALIGN_CENTER
+			visible			1
+			decoration
+		}
+		
+		itemDef
+		{
+			exp				text( "Kills: ^5" + player ( kills ) )
+			style			WINDOW_STYLE_EMPTY
+			rect			0 0 1 1
+
+			exp				rect X(350)
+			exp				rect Y(140)
+			textaligny		150
+			textscale		0.5
+			textstyle		ITEM_TEXTSTYLE_NORMAL
+			textfont		UI_FONT_OBJECTIVE
+			textalign		ITEM_ALIGN_CENTER
+			visible			1
+			decoration
+		}
+		
+			itemDef
+		{
+			exp				text( "Deaths: ^5" + player ( deaths ) )
+			style			WINDOW_STYLE_EMPTY
+			rect			0 0 1 1
+
+			exp				rect X(350)
+			exp				rect Y(160)
+			textaligny		150
+			textscale		0.5
+			textstyle		ITEM_TEXTSTYLE_NORMAL
+			textfont		UI_FONT_OBJECTIVE
+			textalign		ITEM_ALIGN_CENTER
+			visible			1
+			decoration
+		
+
+	}
+}
+

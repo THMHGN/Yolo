@@ -1,0 +1,423 @@
+#include "ui/menudef.h"
+#include "ui_mp/common_macro.inc"
+
+#define CHOICE_X_START			0
+#define CHOICE_Y_START			50
+
+#define CHOICE_GROUP			"contents"
+
+//#define CHOICE_SEP_1			2
+//#define CHOICE_SEP_2			6
+
+#include "ui_mp/menustyle.inc"
+#include "ui/choices_setup_common.menu"
+
+{
+	menuDef
+	{
+		name			mod_main
+		fullscreen		0
+		rect			0 0 640 480	
+		focuscolor		COLOR_FOCUSED
+		style			WINDOW_STYLE_EMPTY
+		blurWorld		5
+		border			0
+		legacySplitScreenScale
+		
+		onOpen
+		{
+		}
+		onEsc			
+		{ 
+		close self; 
+		}
+		onClose	
+		{
+		open mod_main;
+		}
+
+		itemDef	{
+			style			WINDOW_STYLE_SHADER
+			rect			120 120 450 275 HORIZONTAL_ALIGN_FULLSCREEN VERTICAL_ALIGN_FULLSCREEN
+			background		"menu_texture"
+			visible			1
+			decoration	
+			border			1
+			bordercolor		1 1 1 0.5
+		}
+		
+		itemDef	{
+			style			WINDOW_STYLE_FILLED
+			rect			120 395 450 75 HORIZONTAL_ALIGN_FULLSCREEN VERTICAL_ALIGN_FULLSCREEN
+			backcolor		0 0 0 0.75 
+			visible			1
+			decoration
+			border			1
+			bordercolor		1 1 1 0.5
+		}
+		
+		
+		itemDef	{
+			style			WINDOW_STYLE_FILLED
+			rect			120 120 450 25 HORIZONTAL_ALIGN_FULLSCREEN VERTICAL_ALIGN_FULLSCREEN
+			backcolor		(51/255) (181/255) (229/255) 0.75
+			visible			1
+			decoration
+			border			1
+			bordercolor		1 1 1 0.5
+		}
+				
+		itemDef	{ 
+			style			WINDOW_STYLE_SHADER
+			rect			0 100 250 200 HORIZONTAL_ALIGN_FULLSCREEN VERTICAL_ALIGN_FULLSCREEN
+			background		"gradient_bottom" 
+			visible			0.6
+			decoration
+		}
+		
+		itemDef	
+		{
+			style			WINDOW_STYLE_SHADER
+			rect			0 0 854 75 HORIZONTAL_ALIGN_FULLSCREEN 0
+			background		"gradient_top"
+			visible			0.5
+			decoration
+		}
+		
+		itemDef	
+		{
+			style			WINDOW_STYLE_SHADER
+			rect			0 405 854 75 HORIZONTAL_ALIGN_FULLSCREEN 0
+			background		"gradient_bottom"
+			visible			0.5
+			decoration
+		}
+		
+		itemDef	{ 
+			style			WINDOW_STYLE_SHADER
+			rect			65 35 115 130 HORIZONTAL_ALIGN_FULLSCREEN VERTICAL_ALIGN_FULLSCREEN
+			background		"logo_3xp" 
+			visible			1
+			decoration
+		}
+		
+		
+		itemDef	{
+			type			ITEM_TYPE_TEXT
+			rect			350 148 20 20 HORIZONTAL_ALIGN_FULLSCREEN VERTICAL_ALIGN_FULLSCREEN
+			forecolor		1 1 1 0.8
+			text			"Main"
+			textfont		UI_FONT_DEFAULT
+			textscale		(TEXTSIZE_SMALL-0.05)
+			textaligny		-6
+			textalign		ITEM_ALIGN_RIGHT
+			visible			1
+			decoration
+		}
+	
+		
+		// Version
+		itemDef
+		{
+			exp				text( "Version:^5 0.1" )
+			style			WINDOW_STYLE_EMPTY
+			rect			0 0 1 1
+
+			exp				rect X(600)
+			exp				rect Y(315)
+			textaligny		150
+			textscale		0.2
+			textstyle		ITEM_TEXTSTYLE_NORMAL
+			textfont		UI_FONT_OBJECTIVE
+			textalign		ITEM_ALIGN_CENTER
+			visible			1
+			decoration
+		}
+		// Menu by
+		itemDef
+		{
+			exp				text( "Menu by: ^5Wingzor" )
+			style			WINDOW_STYLE_EMPTY
+			rect			0 0 1 1
+
+			exp				rect X(117)
+			exp				rect Y(315)
+			textaligny		150
+			textscale		0.2
+			textstyle		ITEM_TEXTSTYLE_NORMAL
+			textfont		UI_FONT_OBJECTIVE
+			textalign		ITEM_ALIGN_CENTER
+			visible			1
+			decoration
+		}
+
+		itemDef
+		{
+			exp				text( "Website: ^53xp-clan.com" )
+			style			WINDOW_STYLE_EMPTY
+			rect			0 0 1 1
+
+			exp				rect X(350)
+			exp				rect Y(310)
+			textaligny		150
+			textscale		0.4
+			textstyle		ITEM_TEXTSTYLE_NORMAL
+			textfont		UI_FONT_OBJECTIVE
+			textalign		ITEM_ALIGN_CENTER
+			visible			1
+			decoration
+		}
+		
+		itemDef
+		{
+			exp				text( "A CoD4 modification created by ^5Headdy" )
+			style			WINDOW_STYLE_EMPTY
+			rect			0 0 1 1
+
+			exp				rect X(350)
+			exp				rect Y(282)
+			textaligny		150
+			textscale		0.3
+			textstyle		ITEM_TEXTSTYLE_NORMAL
+			textfont		UI_FONT_OBJECTIVE
+			textalign		ITEM_ALIGN_CENTER
+			visible			1
+			decoration
+		}
+		
+		
+//////BUTTONBACKGROUNDS//
+		itemDef 
+		{
+			style			WINDOW_STYLE_FILLED
+			rect			(65+25) 360 100 25
+			backcolor		(51/255) (181/255) (229/255) .75
+			visible			1
+			border			1
+			bordercolor		1 1 1 0.5
+			decoration
+		}
+		
+		itemDef 
+		{
+			style			WINDOW_STYLE_FILLED
+			rect			(170+25) 360 100 25
+			backcolor		(51/255) (181/255) (229/255) .75
+			visible			1
+			border			1
+			bordercolor		1 1 1 0.5
+			decoration
+		}
+		
+		itemDef 
+		{
+			style			WINDOW_STYLE_FILLED
+			rect			(275+25) 360 100 25
+			backcolor		(51/255) (181/255) (229/255) .75
+			visible			1
+			border			1
+			bordercolor		1 1 1 0.5
+			decoration
+		}
+		
+		itemDef 
+		{
+			style			WINDOW_STYLE_FILLED
+			rect			(380+25) 360 100 25
+			backcolor		(51/255) (181/255) (229/255) .75
+			visible			1
+			border			1
+			bordercolor		1 1 1 0.5
+			decoration
+		}
+		
+		itemDef 
+		{
+			style			WINDOW_STYLE_FILLED
+			rect			(485+25) 360 100 25
+			backcolor		(51/255) (181/255) (229/255) .75
+			visible			1
+			border			1
+			bordercolor		1 1 1 0.5
+			decoration
+		}
+						itemDef
+		{
+			exp				text("^7Welcome Player: ^5"+dvarString("name"));
+			style			WINDOW_STYLE_EMPTY
+			rect			0 0 1 1
+
+			exp				rect X(350)
+			exp				rect Y(25)
+			textaligny		150
+			textscale		0.4
+			textstyle		ITEM_TEXTSTYLE_NORMAL
+			textfont		UI_FONT_OBJECTIVE
+			textalign		ITEM_ALIGN_CENTER
+			visible			1
+			decoration
+		}
+								itemDef
+		{
+			exp				text("^7Map Name: ^5"+dvarString("mapname"));
+			style			WINDOW_STYLE_EMPTY
+			rect			0 0 1 1
+
+			exp				rect X(350)
+			exp				rect Y(45)
+			textaligny		150
+			textscale		0.4
+			textstyle		ITEM_TEXTSTYLE_NORMAL
+			textfont		UI_FONT_OBJECTIVE
+			textalign		ITEM_ALIGN_CENTER
+			visible			1
+			decoration
+		}
+										itemDef
+		{
+			exp				text("^7Host Name: ^5"+dvarString("sv_hostname"));
+			style			WINDOW_STYLE_EMPTY
+			rect			0 0 1 1
+
+			exp				rect X(350)
+			exp				rect Y(65)
+			textaligny		150
+			textscale		0.4
+			textstyle		ITEM_TEXTSTYLE_NORMAL
+			textfont		UI_FONT_OBJECTIVE
+			textalign		ITEM_ALIGN_CENTER
+			visible			1
+			decoration
+		}
+		
+		////////////BUTTONS///////////
+		itemDef 
+		{
+			visible			1
+			rect			(65+25) 360 100 25
+			style			1
+			type			ITEM_TYPE_BUTTON
+			text 			"Auto-Assign"
+			textfont		1
+			textscale		0.4
+			textalignx		0
+			textaligny		20
+			textalign		ITEM_ALIGN_CENTER
+			border			1
+			bordercolor		1 1 1 0.5
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "autoassign";
+			}
+			onFocus
+			{
+				play "mouse_over";
+			}
+		}
+		
+		itemDef 
+		{
+			visible			1
+			rect			(170+25) 360 100 25
+			style			1
+			type			ITEM_TYPE_BUTTON
+			text 			"Spectator"
+			textfont		1
+			textscale		0.4
+			textalignx		0
+			textaligny		20
+			textalign		ITEM_ALIGN_CENTER
+			border			1
+			bordercolor		1 1 1 0.5
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "spectator";
+			}
+			onFocus
+			{
+				play "mouse_over";
+			}
+		}
+				
+			itemDef 
+		{
+			visible			1
+			rect			(275+25) 360 100 25
+			style			1
+			type			ITEM_TYPE_BUTTON
+			text 			"About"
+			textfont		1
+			textscale		0.4
+			textalignx		0
+			textaligny		20
+			textalign		ITEM_ALIGN_CENTER
+			border			1
+			bordercolor		1 1 1 0.5
+			action
+			{
+				play "mouse_click";
+				close self; open mod_about;
+			}
+			onFocus
+			{
+				play "mouse_over";
+			}
+		}
+		
+			itemDef 
+		{
+			visible			1
+			rect			(380+25) 360 100 25
+			style			1
+			type			ITEM_TYPE_BUTTON
+			text 			"Options"
+			textfont		1
+			textscale		0.4
+			textalignx		0
+			textaligny		20
+			textalign		ITEM_ALIGN_CENTER
+			border			1
+			bordercolor		1 1 1 0.5
+			action
+			{
+				play "mouse_click";
+				close self; open ingame_options;
+			}
+			onFocus
+			{
+				play "mouse_over";
+			}
+		}
+		
+			itemDef 
+		{
+			visible			1
+			rect			(485+25) 360 100 25
+			style			1
+			type			ITEM_TYPE_BUTTON
+			text 			"Leave Game"
+			textfont		1
+			textscale		0.4
+			textalignx		0
+			textaligny		20
+			textalign		ITEM_ALIGN_CENTER
+			border			1
+			bordercolor		1 1 1 0.5
+			action
+			{
+				play "mouse_click";
+				open popup_endgame, CLEARUIHINT, when(1);
+			}
+			onFocus
+			{
+				play "mouse_over";
+			}
+		}
+
+		
+
+	}
+}
+

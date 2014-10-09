@@ -1,0 +1,39 @@
+
+// scripts
+rawfile,maps/mp/gametypes/_callbacksetup.gsc
+rawfile,maps/mp/gametypes/_gametypes.txt
+rawfile,maps/mp/gametypes/_persistence.gsc
+rawfile,maps/mp/gametypes/_hud_util.gsc
+rawfile,maps/mp/gametypes/yolo.gsc
+rawfile,maps/mp/gametypes/yolo.txt
+
+// menus
+menufile,ui_mp/scriptmenus/scoreboard.menu
+menufile,ui_mp/scriptmenus/mod_about.menu
+menufile,ui_mp/scriptmenus/mod_main.menu
+menufile,ui_mp/scriptmenus/mod_stats.menu
+menufile,ui_mp/scriptmenus/connect.menu
+menufile,ui_mp/scriptmenus/credits.menu
+menufile,ui_mp/scriptmenus/yolocmd.menu
+menufile,ui_mp/welcome.menu
+menufile,ui_mp/scriptmenus/help.menu
+menufile,ui_mp/scriptmenus/mod_shop.menu
+material,menu_texture
+
+// effects
+fx,yolo/embers
+fx,yolo/explosion
+fx,misc/hunted_spotlight_model
+
+// weapons
+weapon,mp/brick_mp
+weapon,mp/knife_mp
+
+// models
+xmodel,com_barrel_benzin
+xmodel,body_mp_usmc_cqb
+xmodel,fake
+
+// sounds
+rawfile,sound/yolo/yolo_imtroll.wav
+sound,braxi,,all_mp
