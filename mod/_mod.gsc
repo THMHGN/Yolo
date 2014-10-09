@@ -1,39 +1,15 @@
-/*    ````       `````````````````     `````     ``````..`    ``````..``    ````   ````   
-  @@@@@@@`   @@@@@@@@@@@@@@@@@@@'` #@@@@@@.  `@@@@@@@@@@@;`@@@@@@@@@@@#.@@@@@@@@@@@@@@. 
- `@@@@@@@.   @@@@@@@@@@@@@@@@@@@@.`@@@@@@@@` @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@:`
- `@+@..@@,  `@#.,.@'@,:@,......@@.,@;....@@, @@,.........'@@....+.....,@@@..#.@@,;..'@;`
- `@@,,,@@,  `@#..:@#;,.@,......@@,@@.....;@;`@@...........,@....+.......@@,...+@..,.@@, 
- `@@,,,@@,  `@#,,,@,,,:@,,,,,,,@@,@@,,,,,,@@.@@,;,,,,,,,,,,@,,,,+:,,,,,,;@@,,,,',,,:@'. 
- `@+,+,@@,` `@#,,,@,:,,@@@@@@@@@+;@:,,,,,,@@,@@;;,,@@@@';,,;,',,@@@@@,,,,@@,,,@,,,,@@:` 
- `@++':@@@@@@@#,,,@#;,,@@@@@@@@',@@,,,:,,,:@'@@,,,,@';@@,,,,,,,,@@;@@,,,,@@@,,#,,:,@@.  
- `@+;,;@@@@@@@#,,,@;':,@@@@@@@@@:@@,,,#:,,,@@@@,,,,@;.@@,,,,;,,,@@..@,,,,@@@,#,',,@@:`  
- `@+,''@,:,,;,#,,,@,+,,@,,,,,,,@'@;,,,@@,,,@@@@,,,,@;`@@,,,,,,,,@@..@,,,,@@@+@,;,:@@,   
- `@@,,:@,,,,,,#,:,@:,#:@::,,:,,@@@:,,,@@,,,,@@@,,,,@;`@@,,,,,,,,@@..@,,,,@@@@,,,,#@;`   
- `@+##'@:,:,,,#,,:@,'':@:,,,;,,@@@,,,'@@,,,,@@@+,,,@;`@@,,,,,,:,@@..@,,,,@@@@,:,:@@,    
- `@+,,:@@@@@@@@,,:@:+:,@@@@@@@@@@:,,,@@@',,,#@@,,:;@;`@@,,,,,,,@@@..@,,,,@@@;,;@'@;`    
- `@+;::@@++++@@,,:@,,''@@+++++'@@,,:,+,,,,,,,@@,:,,@;`@@,,,,,:,,@@.,@,,;,@@@,,,,@@,`    
- `@+::#@@,``.@@;;:@::::@@@@@@@@@@:;::::::::::@@::;:@@@@@:::::;::@@@@@::::@@+::::@+.     
- `@+:::@@,  `@#:::@::::@@@@@@@@@:'::@::::::::+@::::@@@@::::+::::@@@@;::::@@::::@@:`     
- `@@:::@@,  `@@:::@+::#@:::;;::#;:::@@@@@@::::@::::''::::::@:::;+:::::::@@@::::@@.      
- `@+;''@@,  `@@:::@;@@:@@:+::':#:::;@#::@@::::@::'::::::::@@::::#:;::::#@@::::@@:`      
- `@@:::@@,  `@@'::@'@':@;':#:::#::;+@:``'@::::+:::::::::'@@@;;::#:::::@@@@::::@@,       
- `@@@@@@@.  `@@@@@@@@@@@@@@@@@@@@@@@@,  .@@@@@@@@@@@@@@@@@#@@@@@@@@@@@@@@@@@@@@;`       
-  `:;+@@:`   .+@@@@;;+@@@+@@@@@@@@@#:`  `,@@@@@@@@#@@@#+;,.,@@@#@@@@+;:,,@@@@@;.        
-    `````     ```````````````````````    ````````````````  ````````````  ``````
-	Headdy's YOLO mod.
-	
-	Website: 3xp-clan.com or thimohagen.nl
-	
-	Mod version: 0.1a
-	Some credits to: Lossy, Braxi & Wingzor. Thanks.
+/*
+YOLO (The Mod) by Headdy
+Original mod maker: Braxi
+Thanks to: NiNJA; Lossy
 */
 
 #include maps\mp\_utility;
 #include common_scripts\utility;
 #include maps\mp\gametypes\_hud_util;
 
-#include headdy\_common;
-#include headdy\_dvar;
+#include mod\_common;
+#include mod\_dvar;
 
 main()
 {
@@ -44,13 +20,12 @@ main()
 		level.mapmaker = "Unknown";
 
 
-	headdy\_dvar::setupDvars(); // all dvars are there
+	mod\_dvar::setupDvars(); // all dvars are there
 	precache();
-	headdy\_cod4stuff::main(); // setup vanilla cod4 variables --> lol
-	thread headdy\_bots::addTestClients();
-	thread headdy\_hostname::init();
-	thread headdy\_menus::init();
-	thread headdy\_killstreak::init();
+	mod\_cod4stuff::main(); // setup vanilla cod4 variables --> lol
+	thread mod\_bots::addTestClients();
+	thread mod\_menus::init();
+	thread mod\_killstreak::init();
 	thread initScoreboard(); // Idk if it was needed to thread it.
 
 	level.mapName = toLower( getDvar( "mapname" ) ); // Just... Coz ye
@@ -73,7 +48,7 @@ main()
 	visionSetNaked( level.mapName, 0 );
 
 	thread timeLimit();
-	thread endRound( "allies", "..." );
+	thread endRound( "allies", "" );
 
 	if( level.dvar["music"] )
 		thread music();
@@ -94,10 +69,6 @@ music() // Just.. I need to find some "good" sounds for this.
 			i = 0;
 		wait 120 + randomInt(60);
 	}
-}
-menus()
-{
-	self setClientDvar( "yolotext", "Yolo mod is made by Headdy. This mod is in beta stage. Feel free to report bugs on xfire: ^1headdygaming. ^7Thanks in advance and have fun!" );
 }
 initScoreboard()
 {
@@ -297,7 +268,7 @@ respawn()
 
 	wait 0.05;
 	if( self.pers["team"] == "allies" && game["state"] == "playing" )
-		self headdy\_teams::setTeam( "axis" );
+		self mod\_teams::setTeam( "axis" );
 	
 	wait level.dvar["respawnDelay"];
 	
@@ -564,7 +535,7 @@ spawnSpectator( origin, angles )
 
 	self notify( "joined_spectators" );
 
-	self headdy\_teams::setTeam( "spectator" );
+	self mod\_teams::setTeam( "spectator" );
 
 	self thread cleanUp();
 	resettimeout();
@@ -572,7 +543,7 @@ spawnSpectator( origin, angles )
 	self.spectatorclient = -1;
 	self.statusicon = "";
 	self spawn( origin, angles );
-	self headdy\_teams::setSpectatePermissions();
+	self mod\_teams::setSpectatePermissions();
 
 	level notify( "player_spectator", self );
 }
@@ -626,11 +597,11 @@ pickRandomSuicider()
 	logPrint( ("First Suicider:" + guy.name + ";" + guy getGuid() ) );
 	//iPrintlnBold( guy.name + " is the first ^1Suicider." );
 
-	headdy\_hudutils::annoucement( 4, (guy.name + "^7 is the first ^1Suicider.") );
-	thread headdy\_common::playSoundOnAllPlayers( "first_suicider" );
+	mod\_hudutils::annoucement( 4, (guy.name + "^7 is the first ^1Suicider.") );
+	thread mod\_common::playSoundOnAllPlayers( "first_suicider" );
 
 
-	guy thread headdy\_teams::setTeam( "axis" );
+	guy thread mod\_teams::setTeam( "axis" );
 	guy spawnPlayer();
 		
 	setDvar( "last_picked_player", guy getEntityNumber() );
@@ -649,7 +620,6 @@ roundLogic()
 		return;
 
 	waitForPlayers( 2 );
-	//debug("player wait bypassed");
 	level notify( "round_started", game["roundsplayed"] );
 	game["state"] = "playing";
 
@@ -783,7 +753,7 @@ endRound( team, notifyText )
 		for( i = 0; i < players.size; i++ )
 		{
 			players[i] suicide();
-			players[i] headdy\_teams::setTeam( "allies" );
+			players[i] mod\_teams::setTeam( "allies" );
 			players[i] spawnPlayer();
 		}
 	}
@@ -794,9 +764,7 @@ endRound( team, notifyText )
 		return;
 	}
 	game["round"] ++;
-	//debug("new round");
-	//headdy\_hudutils::annoucement( 9, "Round: ^3" + game["round"] + " out of ^3" + level.dvar["round_limit"] ); // In case you want to use round limits, I do prefer time. ;)
-	headdy\_hudutils::annoucement( 5, "Round " + game["round"] + " begins in 5 seconds..." );
+	mod\_hudutils::annoucement( 5, "Round " + game["round"] + " begins in 5 seconds..." );
 	
 	wait 5;
 
@@ -823,41 +791,6 @@ addTextHud( who, x, y, alpha, alignX, alignY, fontScale ) // Huh gay
 	hud.fontScale = fontScale;
 	return hud;
 }
-
-
-/*endMap()
-{
-	game["state"] = "endmap";
-	level notify( "intermission" );
-	level notify( "game over" );
-
-	setDvar( "g_deadChat", 1 );
-	
-	level.hud_round fadeOverTime( 2.6 );
-	level.hud_round.alpha = 0;
-	wait 3;
-	level.hud_round destroy();
-
-	ambientstop( 0 );
-	playSoundOnAllPlayers( "endmusic" );
-		
-
-	players = getAllPlayers();
-	for( i = 0; i < players.size; i++ )
-	{
-		oldteam = players[i].pers["team"];
-		players[i] spawnSpectator( level.spawns["spectator"][0].origin, level.spawns["spectator"][0].angles );
-		players[i] headdy\_teams::setTeam( oldteam );
-		players[i].sessionstate = "intermission";
-	}
-	wait .5;
-	headdy\_credits::main();
-	
-	wait 20;
-	
-	//exitLevel( false );
-}*/
-
 endMap( winningteam )
 {
 	game["state"] = "endmap";
@@ -897,7 +830,7 @@ endMap( winningteam )
 
 	wait 0.5;
 
-	headdy\_credits::main();
+	mod\_credits::main();
 
 	
 	players = getAllPlayers();

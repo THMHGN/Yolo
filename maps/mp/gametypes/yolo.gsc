@@ -1,14 +1,8 @@
-///////////////////////////////////////////////////////////////
-////|         |///|        |///|       |/\  \/////  ///|  |////
-////|  |////  |///|  |//|  |///|  |/|  |//\  \///  ////|__|////
-////|  |////  |///|  |//|  |///|  |/|  |///\  \/  /////////////
-////|          |//|  |//|  |///|       |////\    //////|  |////
-////|  |////|  |//|         |//|  |/|  |/////    \/////|  |////
-////|  |////|  |//|  |///|  |//|  |/|  |////  /\  \////|  |////
-////|  |////|  |//|  | //|  |//|  |/|  |///  ///\  \///|  |////
-////|__________|//|__|///|__|//|__|/|__|//__/////\__\//|__|////
-///////////////////////////////////////////////////////////////
-
+/*
+YOLO (The Mod) by Headdy
+Original mod maker: Braxi
+Thanks to: NiNJA; Lossy
+*/
 main()
 {
 	if( getDvar( "mapname" ) == "mp_background" )
@@ -37,7 +31,7 @@ Callback_StartGameType()
 	if ( !isDefined( game["axis"] ) )
 		game["axis"] = "opfor";
 
-	headdy\_mod::main(); // Start the mod ^^
+	mod\_mod::main(); // Start the mod ^^
 
 	allowed[0] = "war";
 	maps\mp\gametypes\_gameobjects::main(allowed);	
@@ -57,35 +51,35 @@ Callback_PlayerConnect()
 
 	self.statusicon = "";
 	self waittill("begin");
-	self headdy\_mod::playerConnect();
+	self mod\_mod::playerConnect();
 }
 
 
 Callback_PlayerDisconnect()
 {
 	iPrintln( self.name + " ^7disconnected." );
-	self headdy\_mod::playerDisconnect();
+	self mod\_mod::playerDisconnect();
 }
 
 
 Callback_PlayerLastStand( eInflictor, attacker, iDamage, sMeansOfDeath, sWeapon, vDir, sHitLoc, psOffsetTime, deathAnimDuration )
 {
-	self headdy\_mod::PlayerLastStand( eInflictor, attacker, iDamage, sMeansOfDeath, sWeapon, vDir, sHitLoc, psOffsetTime, deathAnimDuration );
+	self mod\_mod::PlayerLastStand( eInflictor, attacker, iDamage, sMeansOfDeath, sWeapon, vDir, sHitLoc, psOffsetTime, deathAnimDuration );
 }
 
 
 Callback_PlayerDamage(eInflictor, eAttacker, iDamage, iDFlags, sMeansOfDeath, sWeapon, vPoint, vDir, sHitLoc, psOffsetTime)
 {
-	self headdy\_mod::PlayerDamage(eInflictor, eAttacker, iDamage, iDFlags, sMeansOfDeath, sWeapon, vPoint, vDir, sHitLoc, psOffsetTime);
+	self mod\_mod::PlayerDamage(eInflictor, eAttacker, iDamage, iDFlags, sMeansOfDeath, sWeapon, vPoint, vDir, sHitLoc, psOffsetTime);
 }
 
 
 Callback_PlayerKilled(eInflictor, attacker, iDamage, sMeansOfDeath, sWeapon, vDir, sHitLoc, psOffsetTime, deathAnimDuration)
 {
-	self headdy\_mod::PlayerKilled(eInflictor, attacker, iDamage, sMeansOfDeath, sWeapon, vDir, sHitLoc, psOffsetTime, deathAnimDuration);
+	self mod\_mod::PlayerKilled(eInflictor, attacker, iDamage, sMeansOfDeath, sWeapon, vDir, sHitLoc, psOffsetTime, deathAnimDuration);
 }
 
-allies(){ self headdy\_teams::setTeam( "allies" ); }
-axis(){ self headdy\_teams::setTeam( "axis" ); }
-spectator(){ self headdy\_teams::setTeam( "spectator" ); }
+allies(){ self mod\_teams::setTeam( "allies" ); }
+axis(){ self mod\_teams::setTeam( "axis" ); }
+spectator(){ self mod\_teams::setTeam( "spectator" ); }
 

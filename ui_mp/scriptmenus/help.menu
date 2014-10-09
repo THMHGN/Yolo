@@ -119,7 +119,7 @@
 		// Version
 		itemDef
 		{
-			exp				text( "Version:^5 0.1" )
+			exp				text( "Version:^5 0.1a" )
 			style			WINDOW_STYLE_EMPTY
 			rect			0 0 1 1
 
@@ -136,7 +136,7 @@
 		// Menu by
 		itemDef
 		{
-			exp				text( "Menu by: ^5Wingzor" )
+			exp				text( "Thanks to: Braxi" )
 			style			WINDOW_STYLE_EMPTY
 			rect			0 0 1 1
 
@@ -153,7 +153,7 @@
 
 		itemDef
 		{
-			exp				text( "Website: ^53xp-clan.com" )
+			exp				text( "Website: ^5ninja-gaming.org" )
 			style			WINDOW_STYLE_EMPTY
 			rect			0 0 1 1
 
@@ -184,6 +184,7 @@
 			visible			1
 			decoration
 		}
+		
 		
 		/////INFO
 		itemDef
@@ -268,7 +269,7 @@
 		}
 		itemDef
 		{
-			exp				text( "For further info, check: ^53xp-clan.com/")
+			exp				text( "For further info, check: ^5ninja-gaming.org/")
 			style			WINDOW_STYLE_EMPTY
 			rect			0 0 1 1
 

@@ -1,12 +1,9 @@
 /*
-	Headdy's YOLO mod.
-	
-	Website: 3xp-clan.com or thimohagen.nl
-	Date file: 9-11-2013.
-	Do not copy or use anything of this file for you own.
-	
-	Mod version: 0.1a
+YOLO (The Mod) by Headdy
+Original mod maker: Braxi
+Thanks to: NiNJA; Lossy
 */
+
 setParent( element )
 {
 	if ( isDefined( self.parent ) && self.parent == element )

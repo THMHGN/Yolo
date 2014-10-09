@@ -1,4 +1,9 @@
-init() // Thanks wingie :D
+/*
+YOLO (The Mod) by Headdy
+Original mod maker: Braxi
+Thanks to: NiNJA; Lossy
+*/
+init() // This is still experimental!
 {
   for(;;)
   {	 
@@ -20,16 +25,15 @@ watchscorestreak()
 		self.scorecount = self.pers["score"] - self.startscore;
 		switch (self.scorecount) {
 			case 10:
-					self giveWeapon("usp_mp");
-					self switchtoweapon("usp_mp");
-					self giveMaxAmmo("usp_mp");
-					self iPrintln("USP debug");
-				break;
+				self takeAllWeapons();
+				self giveWeapon("usp_mp");
+				self switchToWeapon("usp_mp");
+				self giveMaxAmmo("usp_mp");
+			break;
 			case 30:
 				self giveWeapon("m40a3_mp");
 				self switchtoweapon("m40a3_mp");
 				self giveMaxAmmo("m40a3_mp");
-				self iPrintln("M40A3 debug");
 			break;
 			case 4:
 			break;

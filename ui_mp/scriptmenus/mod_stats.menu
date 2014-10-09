@@ -120,7 +120,7 @@
 		// Version
 		itemDef
 		{
-			exp				text( "Version:^5 0.1" )
+			exp				text( "Version:^5 0.1a" )
 			style			WINDOW_STYLE_EMPTY
 			rect			0 0 1 1
 
@@ -137,7 +137,7 @@
 		// Menu by
 		itemDef
 		{
-			exp				text( "Menu by: Wingzor" )
+			exp				text( "Thanks to: Braxi" )
 			style			WINDOW_STYLE_EMPTY
 			rect			0 0 1 1
 
@@ -154,7 +154,7 @@
 
 		itemDef
 		{
-			exp				text( "Website: ^53xp-clan.com" )
+			exp				text( "Website: ^5ninja-gaming.org" )
 			style			WINDOW_STYLE_EMPTY
 			rect			0 0 1 1
 

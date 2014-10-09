@@ -92,14 +92,6 @@
 			decoration
 		}
 		
-		itemDef	{ 
-			style			WINDOW_STYLE_SHADER
-			rect			65 35 115 130 HORIZONTAL_ALIGN_FULLSCREEN VERTICAL_ALIGN_FULLSCREEN
-			background		"logo_3xp" 
-			visible			1
-			decoration
-		}
-		
 		
 		itemDef	{
 			type			ITEM_TYPE_TEXT
@@ -224,7 +216,7 @@
 		
 			itemDef
 		{
-			exp			text( "Bugs can occur, please report them on Xfire: headdygaming" )
+			exp			text( "Bugs can occur, please report them on Steam: headdythimo" )
 			style			WINDOW_STYLE_EMPTY
 			rect			0 0 1 1
 
